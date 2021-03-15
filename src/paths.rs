@@ -3,11 +3,8 @@ use tide::Server;
 use crate::handler;
 
 pub fn set(app: &mut Server<Pool<Postgres>>) -> Result<(), std::io::Error> {
-
-    // PEMBAHASAN 01 : list record, output ke json
-    app.at("/kantor")
-        .get(handler::kantor::list)
-        .post(handler::kantor::tambah);
+   
+    app.at("/email").post(handler::email::send_email);
 
     Ok(())
 }

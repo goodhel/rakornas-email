@@ -1,1 +1,1 @@
-pub mod kantor;
+pub mod email;

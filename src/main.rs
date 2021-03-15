@@ -22,11 +22,11 @@ fn ws_response(status: &str, info: &str) -> tide::Result<Response>{
     Ok(res)
 }
 
-fn to_json(data: &impl serde::Serialize) -> tide::Result<Response> {
-    let mut res = Response::new(200);
-    res.set_body(Body::from_json(data)?);
-    Ok(res)
-}
+// fn to_json(data: &impl serde::Serialize) -> tide::Result<Response> {
+//     let mut res = Response::new(200);
+//     res.set_body(Body::from_json(data)?);
+//     Ok(res)
+// }
 
 #[async_std::main]
 async fn main() -> tide::Result<()> {
@@ -58,6 +58,6 @@ async fn main() -> tide::Result<()> {
     }));
 
     let _res = paths::set(&mut app);
-    app.listen("0.0.0.0:14303").await?;
+    app.listen("127.0.0.1:18081").await?;
     Ok(())
 }
